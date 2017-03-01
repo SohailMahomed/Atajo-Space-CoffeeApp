@@ -1,0 +1,26 @@
+<script type="text/ng-template" id="userProfileDetails.html">
+    <aui-view view-title="My Profile">
+        <aui-content>
+            <p style="margin-bottom: 0; margin-top: 100px;font-size: 12px; font-weight: bold; padding: 8px; color: #90A4AE;">Personal Details</p>
+            <aui-list>
+                <aui-item>
+                    <p>First Name</p>
+                    <h3>{{userProfile.name}}</h3>                    
+                    <img src="img/blankAvatar.jpg" style="height:40px; width:40px; float:left;" />
+                </aui-item>
+                <aui-item>
+                     <p>Last Name</p>    
+                     <h3>{{userProfile.surname}}</h3>
+                </aui-item>
+                <aui-item>                    
+                    <p>Email</p>
+                    <h3>{{userProfile.username}}</h3>
+                </aui-item>
+                <aui-item>
+                    <p>Role</p>
+                    <h3>{{userProfile.roles}}</h3>
+                </aui-item>
+            </aui-list>
+        </aui-content>
+    </aui-view>
+</script>

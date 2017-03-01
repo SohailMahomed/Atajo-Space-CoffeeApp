@@ -1,0 +1,27 @@
+{
+  "name": "spaceapp-app",
+  "authors": [
+    "Sohail Mahomed <sohail.mahomed@rocketmail.com>"
+  ],
+  "description": "Coffee Mobile App (Atajo)",
+  "main": "",
+  "keywords": [
+    "Coffee",
+    "Atajo"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ngstorage": "^0.3.11",
+    "moment": "^2.12.0",
+    "angular-messages": "^1.5.8",
+    "angular-sanitize": "^1.5.8"
+  }
+}

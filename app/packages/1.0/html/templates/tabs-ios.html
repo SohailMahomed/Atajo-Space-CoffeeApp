@@ -1,0 +1,17 @@
+<script type="text/ng-template" id="tabs.html">
+    <aui-tabs class="tabs-icon-top tabs-energized">
+        <!-- News Feed Tab -->
+        <!-- icon off -> when not selected, icon on -> when selected-->
+        <aui-tab title="News Feed" icon-off="ion-ios-home" icon-on="ion-ios-list" ui-sref="tab.newsFeeds">
+            <aui-nav-view name="tab-newsFeeds"></aui-nav-view>
+        </aui-tab>
+        <!-- Benchmarks Tab -->
+        <aui-tab title="Home" icon-off="ion-ios-home" icon-on="ion-ios-heart" ui-sref="tab.home">
+            <aui-nav-view name="tab-home"></aui-nav-view>
+        </aui-tab>
+        <!-- More Tab 
+        <aui-tab title="More" icon-off="ion-more" icon-on="ion-more" ui-sref="tab.more">
+            <aui-nav-view name="tab-more"></aui-nav-view>
+        </aui-tab>-->
+    </aui-tabs>
+</script>

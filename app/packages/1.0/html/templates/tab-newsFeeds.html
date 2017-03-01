@@ -1,0 +1,43 @@
+<script type="text/ng-template" id="tab-newsFeeds.html">
+    <aui-view view-title="NewsFeed">
+        <aui-content>
+           <h2 style="margin: 8px; margin-top:12px;"></h2>
+         
+         <!--   <div>
+                test svg/fistbump
+                <ng-include src="'fistbumpIconTest.svg'"></ng-include>
+            </div> -->
+
+            <aui-list>
+                <aui-item>
+                     <button class="button button-small button-calm" style="float:left;" ng-click="show('Newsfeed')" round> Show </button>
+                </aui-item>
+            </aui-list>
+
+            <!--<div ng-show="divShow == 'Newsfeed'">  show newsfeed -->
+            <div ng-show="divShow == 'Newsfeed'">
+                <div class="list list-inset">                  
+                
+                <div class="item" ng-repeat="item in newsFeed">
+                    <div ng-if="item.fromAccount == '_fistbump'">
+                        <img src="img/blankAvatar.jpg" style="height:40px; width:40px; float:left;" />
+                        <label style="font-size:16px; font-style:bold; margin-left:10px; float:center;"> {{item.toAccount}}</label> 
+                        <p style="font-size:14px; margin-left:10px; float:center;"> Recieved 1 Fistbump</p> 
+                        <label style="font-size:15px; margin-left:10px; float:right;"> {{item.at | date}} </label>
+                    </div>
+                    <div ng-if="item.fromAccount != '_fistbump'">
+                        <img src="img/blankAvatar.jpg" style="height:40px; width:40px; float:left;" />
+                        <label style="font-size:16px; font-style:bold; margin-left:10px; float:center;"> {{item.toAccount}}</label> 
+                        <p style="font-size:14px; margin-left:10px; float:center;"> Recieved {{item.credits}} beans from {{item.fromAccount}}</p> 
+                        <label style="font-size:15px; margin-left:10px; float:right;"> {{item.at | date}} </label>
+                    </div>
+                </div>
+                <div class="item" ng-if="results.length ===0">
+                    <label> No results found</label>
+                </div>
+                </div>
+            </div>
+
+        </aui-content>
+    </aui-view>
+</script>

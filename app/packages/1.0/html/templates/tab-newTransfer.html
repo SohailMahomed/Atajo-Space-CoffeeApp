@@ -1,0 +1,81 @@
+<style>
+    .list.list-inset{background-color:rgba(255,255,255,.5)!important}.form-errors *,.form-errors>*{padding:0 16px;font-weight:300;font-size:10px}.form-errors .form-error{line-height:1.5;color:red}
+    .input {width: 230px; height: 30px; outline: solid;padding: 0px 10px;margin: 0px auto;display: block;}
+    .users-list li:hover{background: #eeeeee;}
+    .users-list li::active,.users-list li.active {color: #ffffff; background:#0099FF;width: 234px;}
+    .users-list::focus{outline: none;}
+    .list-wrapper {
+	position:absolute;
+	width:300px;
+	height:150px;
+	top:40%;
+	margin-top:-75px;
+	left:50%;
+	margin-left:-150px;}
+</style>
+
+<script type="text/ng-template" id="tab-newTransfer.html">
+    <aui-view view-title="Transfer">
+        <aui-content>
+           <h2 style="margin: 8px; margin-top:12px;"></h2>
+            
+            <div class="list list-inset">                  
+
+                <div class="item">
+                    <img src="img/Assets/Coffee Beans in Circle With dotted border.svg"  style="height:45px; width:45px; float:left;">                     
+                    <h3> {{beanBalance}}</h3>
+                    <p>Bean Balance</p>                  
+                </div>
+                
+                <div class="item">
+                    <img src="img/blankAvatar.jpg"  style="height:40px; width:40px; float:left;">                     
+                    <label class="item item-input" style="width:80%; float:right;">
+                        <input type="text" placeholder="Search user" ng-keydown="checkKeydown($event)" ng-keyup="checkKeyUp($event)" ng-model="transferParams.tParams.Receiver" ng-change="searchFunc()"/>
+                        <!--<div>
+                            <p ng-show="transferParams.tParams.Receiver.$invalid">You need to enter a valid email</p> 
+                        </div>-->
+                        <!--  <ul class="users-list">
+                            <li ng-repeat="user in userList track by $index" ng-class="{active : selectedIndex === $index}" ng-click="AssignValueAndHide($index)">{{user | lowercase}}</li>
+                         </ul>--> 
+                    </label>     
+                    <div style="margin-top:10px; float:right;" ng-if="transferParams.tParams.Receiver">
+                        <aui-scroll scrollbar-y="false" direction="y" style="height:calc(100vh-414px)"> 
+
+                            <aui-list>
+                                  <aui-item ng-repeat="user in userList track by $index" ng-class="{active : selectedIndex === $index}" ng-click="AssignValueAndHide($index)">
+                                      {{user | lowercase}}
+                                  </aui-item>
+                            </aui-list>
+                        </aui-scroll>
+                    </div>        
+                </div>
+
+                <div>    
+                <label class="item item-input">
+                    <input ng-model="transferParams.tParams.Credits" type="text" placeholder="Bean Amount">                
+                </label>
+                </div>
+
+                <div>    
+                <label class="item item-input">
+                    <input ng-model="transferParams.tParams.Message" type="text" placeholder="Messsage">                
+                </label>
+                </div>
+                
+                <div class="item item-divider">
+                <button class="button button-clear button-calm" ng-click="showSummaryTransferDialog()" style="width: 50%; float:right;">
+                    SEND
+                </button>
+                </div>
+
+                <div ng-if="errorMessage">    
+                <label>
+                    <p style="padding:20px;">{{errorMessage}}</p>                
+                </label>
+                </div>
+
+            </div>          
+            
+        </aui-content>
+    </aui-view>
+</script>
