@@ -1,0 +1,11 @@
+{
+  "ignoredDependencies": [
+  	"angular-material",
+  	"angular-ui-router",
+  	"angular-fontawesome",
+  	"angular-route",
+  	"angular-animate",
+  	"angular-aria",
+  	"angular-touch"
+  ]
+}

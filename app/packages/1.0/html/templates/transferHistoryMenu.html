@@ -1,0 +1,70 @@
+<script type="text/ng-template" id="transferHistoryMenu.html">
+<aui-nav-bar class="bar-royal">
+</aui-nav-bar>
+ <aui-view view-title="History">
+<aui-content>
+ <h2 style="margin: 8px; margin-top:20px;"></h2>
+        
+            <aui-list>
+                <aui-item class="item" style="margin-top: 54px; text-align:center;">
+                     <button class="button button-small button-calm" style="float:left;" ng-click="show('Sent')" round> Sent </button>
+                     <button class="button button-small button-calm" style="float:right;" ng-click="show('Received')" round> Received </button>
+                </aui-item>
+            </aui-list>
+
+            <div ng-show="divShow == 'Sent'">
+                <div class="list list-inset" style="margin-top: 30px;">                  
+                
+                <div class="item" ng-repeat="item in sent">
+                    <!--<div ng-if="item.fromAccount == '_fistbump'">-->
+                    <div ng-if="item.fromAccount == '_fistbump'">
+                        <img src="img/blankAvatar.jpg" style="height:40px; width:40px; float:left;" />
+                        <label style="font-size:16px; font-style:bold; margin-right:10px; float:center;"> {{item.toAccount}}</label> 
+                        <p style="font-size:14px; margin-left:10px; float:center;"> Received a fistbump from you</p> 
+                        <label style="font-size:15px; margin-left:10px; float:right;"> {{item.at | date}} </label>
+                    </div>
+                    <div ng-if="item.fromAccount != '_fistbump'">    
+                        <div ng-if="item.toAccount != '_fistbump'"> 
+                        <img src="img/blankAvatar.jpg" style="height:40px; width:40px; float:left;" />
+                        <label style="font-size:16px; font-style:bold; margin-right:10px; float:center;"> {{item.toAccount}}</label> 
+                        <p style="font-size:14px; margin-left:10px; float:center;"> Received {{item.credits}} Beans from you</p> 
+                        <label style="font-size:15px; margin-left:10px; float:right;"> {{item.at | date}} </label>
+                        </div>
+                        <div ng-if="item.toAccount == '_fistbump'"> 
+                        <img src="img/blankAvatar.jpg" style="height:40px; width:40px; float:left;" />
+                        <label style="font-size:16px; font-style:bold; margin-right:10px; float:center;"> Payment made for {{item.credits}} beans</label> 
+                        <label style="font-size:15px; margin-left:10px; float:right;"> {{item.at | date}} </label>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div ng-show="divShow == 'Received'"> 
+                <div class="list list-inset" style="margin-top: 30px;">                  
+
+                <div class="item" ng-repeat="item in received">
+                    <div ng-if="item.fromAccount == '_fistbump'">
+                        <img src="img/blankAvatar.jpg" style="height:40px; width:40px; float:left;" />
+                        <label style="font-size:16px; font-style:bold; margin-right:10px; float:center;"> {{item.requestedBy}}</label> 
+                        <p style="font-size:14px; margin-left:10px; float:center;"> Fistbumped you</p> 
+                        <label style="font-size:15px; margin-left:10px; float:right;"> {{item.at | date}} </label>
+                    </div>
+                    <div ng-if="item.fromAccount != '_fistbump'">
+                        <img src="img/blankAvatar.jpg" style="height:40px; width:40px; float:left;" />
+                        <label style="font-size:16px; font-style:bold; margin-right:10px; float:center;"> {{item.fromAccount}}</label> 
+                        <p style="font-size:14px; margin-left:10px; float:center;"> Sent you {{item.credits}} beans</p> 
+                        <label style="font-size:15px; margin-left:10px; float:right;"> {{item.at | date}} </label>
+                    </div>        
+                </div>
+                <!--<div class="item" ng-if="results.length ===0">
+                    <label> No results found</label>
+                </div>-->
+                
+                </div>
+            </div>   
+            
+
+</aui-content>
+ </aui-view>
+</script>

@@ -1,0 +1,50 @@
+<style>    
+    .login-back{
+    background-image:url('img/Assets/Login Background.png');
+    background-blend-mode: color-dodge;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    animation:login-pan 60s ease-in-out infinite alternate}
+    .login-back>
+</style>
+
+<script type="text/ng-template" id="login.html">
+    <aui-view>
+        <aui-content class="login-back">
+          <!-- <p style="margin-top: 50px; padding: 8px; font-size: 16px; font-weight: 300; text-align:center; color: white">-->
+               <center>
+                   <div> 
+                       <img src="img/Assets/Britehouse logo.png" style="margin-top:50px; width:80%">
+                   </div>
+                   <p style="margin:30px; font-weight: 100; text-align: center; color: #FFF;">Coffee Shop App</p>
+               
+                <label class="item item-input" style="margin-top:70px; background-color:transparent; border-bottem:solid; margin-left:25px; margin-right:25px;">                    
+                    <input ng-model="login.credentials.uname" type="text" placeholder="Username">
+                </label>
+                <label class="item item-input" style="margin-top:15px; background-color:transparent; border-bottem:solid; margin-left:25px; margin-right:25px;">                    
+                    <input ng-model="login.credentials.pword" type="password" placeholder="Password">
+                </label>
+                
+                </center>    
+            <div style="padding: 16px; margin-top: 70px;">
+                <button class="button button-calm" ng-click="submitLoginTest()" style="width: 100%;">
+                    Login
+                </button>
+            </div>
+
+            <div style="padding: 16px; margin-top: 60px;">
+                <center>
+                <label style="margin-top:100px; text-align:center;">
+                    App v.1.0.0
+                </label>
+                </center>
+            </div>
+            
+            <div class="flex-container flex-row flex-center-center" ng-show="isLoading">
+                <aui-spinner class="spinner-calm"></aui-spinner>
+            </div>
+        </aui-content>
+    </aui-view>
+</script>

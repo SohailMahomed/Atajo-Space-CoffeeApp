@@ -1,0 +1,160 @@
+<style>
+    .FistbumpIconOn:before,
+    .FistbumpIconOn:before{
+        content: url('img/Assets/Fistbump icon blue.svg');
+        background: url('img/png/Fistbump icon blue.png'); 
+        height: 20px; width: 20px;
+    }
+    .FistbumpIconOff:before,
+    .FistbumpIconOff:before{
+        content: url('img/Assets/Fistbump icon white.svg');
+        background: url('img/png/Fistbump icon white.png'); 
+        height: 20px; width: 20px;
+    }
+    
+    .ListIconOn:before,
+    .ListIconOn:before{
+        content: url('img/Assets/List Icon Blue.svg');
+        background: url('img/png/List Icon Blue.png'); 
+        height: 20px; width: 20px;
+    }
+    .ListIconOff:before,
+    .ListIconOff:before{
+        background: url('img/png/List Icon White.png');
+        content: url('img/Assets/List Icon White.svg');
+        /*background: url('img/png/List Icon White.png');*/ 
+        height: 20px; width: 20px; 
+    } 
+    
+    .CoffeeIconOn:before,
+    .CoffeeIconOn:before{
+        content: url('img/Assets/Coffee Beans Blue.svg');
+        background: url('img/png/Coffee Beans Blue.png');
+        height: 20px; width: 20px;
+    }
+    .CoffeeIconOff:before,
+    .CoffeeIconOff:before{
+        content: url('img/Assets/Coffee Beans White.svg');
+        background: url('img/png/Coffee Beans White.png');
+        height: 20px; width: 20px;
+    }
+    
+    .ShopIconOn:before,
+    .ShopIconOn:before{
+        content: url('img/Assets/Coffee Shop Blue.svg');
+        background: url('img/png/Coffee Shop Blue.png');
+        height: 20px; width:30px;
+    }
+    .ShopIconOff:before,
+    .ShopIconOff:before{
+        content: url('img/Assets/Coffee Shop White.svg');
+        background: url('img/png/Coffee Shop White.png');
+        height: 20px; width: 20px;
+    }
+    
+    .MessageIconOn:before,
+    .MessageIconOn:before{
+        content: url('img/Assets/Message Blue.svg');
+        background: url('img/png/Message Blue.png');
+        height: 20px; width: 20px;
+    }
+    .MessageIconOff:before,
+    .MessageIconOff:before{
+        content: url('img/Assets/Message White.svg');
+        background: url('img/png/Message White.png');
+        height: 20px; width: 20px;
+    }
+</style>    
+
+<script type="text/ng-template" id="tabs.html">               
+
+<aui-side-menus enable-menu-with-back-views="false">
+        <aui-side-menu-content>
+            <aui-nav-bar class="bar-royal">   
+                <aui-nav-back-button>
+                </aui-nav-back-button>
+
+                <aui-nav-buttons side="left">
+                    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+                </aui-nav-buttons>
+    </aui-nav-bar> 
+     <aui-tabs class="tabs-icon-top tabs-royal">
+        <!-- News Feed Tab -->
+        <!-- icon off -> when not selected, icon on -> when selected-->
+        <aui-tab icon-off="ListIconOff" icon-on="ListIconOn" ui-sref="tab.newsFeeds">
+            <aui-nav-view name="tab-newsFeeds"></aui-nav-view>
+        </aui-tab>
+        <!-- New Fist Tab  fist bump icon blue.svg-->
+        <!-- <aui-tab title="Fist Bump" icon-off="ion-thumbsup" icon-on="ion-thumbsup" ui-sref="tab.newFistBump"> -->
+        <aui-tab icon-off ="FistbumpIconOff" icon-on ="FistbumpIconOn" ui-sref="tab.newFistBump">
+            <aui-nav-view name="tab-newFistBump"></aui-nav-view>
+        </aui-tab>
+        <!-- Transfer tab-->
+        <aui-tab icon-off="CoffeeIconOff" icon-on="CoffeeIconOn" ui-sref="tab.newTransfer">
+            <aui-nav-view name="tab-newTransfer"></aui-nav-view>
+        </aui-tab>
+        <!-- History Sent/Received-->
+        <aui-tab icon-off="MessageIconOff" icon-on="MessageIconOn" ui-sref="tab.transferHistory">
+            <aui-nav-view name="tab-transferHistory"></aui-nav-view>
+        </aui-tab>
+        <!-- More Tab -->
+        <aui-tab icon-off="ShopIconOff" icon-on="ShopIconOn" ui-sref="tab.more">
+            <aui-nav-view name="tab-more"></aui-nav-view>
+        </aui-tab>
+
+
+    </aui-tabs>
+    <aui-nav-view name="menuContent"></aui-nav-view>
+        </aui-side-menu-content>
+    <aui-side-menu side="left">
+            <aui-header-bar class="bar-dark text-right">
+               <!-- <h2>Test</h2> -->
+            </aui-header-bar>
+            <aui-content class="menuContent">
+                <aui-list>
+
+                    
+                    <!--<aui-item class="menuItem item-royal" menu-close ng-click="profile()>-->
+                    <aui-item class="menuItem item-royal" menu-close ui-sref="tab.profile">
+                        <div class="item-icon-left">
+                            <i class="icon ion-earth"></i>
+                            <p>
+                                Profile
+                            </p>
+                        </div>
+                        <div class="item-icon-right">
+                            <i class="icon ion-ios-arrow-right"></i>
+                        </div>
+                    </aui-item>
+                    <!--<aui-item class="menuItem item-royal" menu-close ng-click="payment()">-->
+                    <aui-item class="menuItem item-royal" menu-close ui-sref="tab.payment">
+                        <div class="item-icon-left">
+                            <i class="icon ion-earth"></i>
+                            <p>
+                                Make payment
+                            </p>
+                        </div>
+                        <div class="item-icon-right">
+                            <i class="icon ion-ios-arrow-right"></i>
+                        </div>
+                    </aui-item>
+                    <aui-item class="menuItem item-royal" menu-close ng-click="logout()">
+                        <div class="item-icon-left">
+                            <i class="icon ion-android-exit"></i>
+                            <p>
+                                Log Out
+                            </p>
+                        </div>
+                        <div class="item-icon-right">
+                            <i class="icon ion-ios-arrow-right"></i>
+                        </div>
+
+                    </aui-item>
+                </aui-list>
+            </aui-content>
+            <aui-footer-bar class="bar-dark text-center">
+            </aui-footer-bar>
+        </aui-side-menu>
+</aui-side-menus>
+   
+</script>
