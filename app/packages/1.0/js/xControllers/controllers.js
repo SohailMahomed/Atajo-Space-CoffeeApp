@@ -749,8 +749,8 @@ module.controller('NewsFeedCtrl', [
 ]);;;
 
 module.controller('PaymentCtrl', [
-    '$log', '$q', '$rootScope', '$scope', '$state', 'TransferService',
-    function($log, $q, $rootScope, $scope, $state, TransferService) {
+    '$log', '$q', '$rootScope', '$scope', '$state', 'TransferService', 'MenuService',
+    function($log, $q, $rootScope, $scope, $state, TransferService, MenuService) {
         var ctrl = this;
 
         console.log("reached payment controller");
@@ -812,6 +812,20 @@ module.controller('PaymentCtrl', [
                     var total = 0;
                     var menuList = [];
                     var itemsToPay = [];
+                    MenuService.getMenu().then(function(data){
+                        if(!data)
+                        {
+                            console.log("failed getting list for menu");
+                        }
+                        else
+                        {
+                            console.log("Array of menu "+data[0].name);
+                            $rootScope.saveMenuList(data);
+                        }
+                    }, function(err) {
+                        console.log("error getting list of menu");
+                        console.log(err);
+                    });
                     menuList = $rootScope.getMenuList();
                     itemsToPay = $rootScope.getListToPay();
                     console.log("menu items : "+JSON.stringify(menuList));
