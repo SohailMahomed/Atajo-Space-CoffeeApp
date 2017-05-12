@@ -1,17 +1,179 @@
-<script type="text/ng-template" id="tabs.html">
-    <aui-tabs class="tabs-icon-top tabs-energized">
+<style>
+    .tabs .tab-item .icon.FistbumpIconOn {
+        background-repeat: no-repeat;
+        background-position: 50%;
+        height: 100%;
+        background: url('img/png/Fistbump_icon_blue.png') no-repeat;
+        background-size: contain;
+        /* content: url('img/Assets/Fistbump icon blue.svg'); */
+    }
+    /*.FistbumpIconOff:before,
+    .FistbumpIconOff:before{
+        background-repeat: no-repeat;
+        background-position: 50%;
+        height: 100%;
+        background: url('img/png/Fistbump icon white.png');
+        background-size: contain;
+    }*/
+    .tabs .tab-item .icon.FistbumpIconOff {
+        background-repeat: no-repeat;
+        background-position: 50%;
+        height: 100%;
+        background: url('img/png/Fistbump_icon_white.png') no-repeat;
+        background-size: contain;
+    }
+
+    .tabs .tab-item .icon.ListIconOn {
+        background-repeat: no-repeat;
+        background-position: 50%;
+        height: 100%;
+        background: url('img/png/List_Icon_Blue.png') no-repeat;
+        background-size: contain;
+    }
+    .tabs .tab-item .icon.ListIconOff {
+        background-repeat: no-repeat;
+        background-position: 50%;
+        height: 100%;
+        background: url('img/png/List_Icon_White.png') no-repeat;
+        background-size: contain;
+    } 
+    
+    .tabs .tab-item .icon.CoffeeIconOn {
+        /*content: url('img/Assets/Coffee Beans Blue.svg');*/
+        background-repeat: no-repeat;
+        background-position: 50%;
+        height: 100%;
+        background: url('img/png/Coffee_Beans_Blue.png') no-repeat;
+        background-size: contain;
+    }
+    .tabs .tab-item .icon.CoffeeIconOff {
+        background-repeat: no-repeat;
+        background-position: 50%;
+        height: 100%;
+        background: url('img/png/Coffee_Beans_White.png') no-repeat;
+        background-size: contain;
+    }
+    
+    .tabs .tab-item .icon.ShopIconOn {
+        background-repeat: no-repeat;
+        background-position: 50%;
+        height: 100%;
+        background: url('img/png/Coffee_Shop_Blue.png') no-repeat;
+        background-size: contain;
+    }
+    .tabs .tab-item .icon.ShopIconOff {
+        background-repeat: no-repeat;
+        background-position: 50%;
+        height: 100%;
+        background: url('img/png/Coffee_Shop_White.png') no-repeat;
+        background-size: contain;
+    }
+    
+    .tabs .tab-item .icon.MessageIconOn {
+        background-repeat: no-repeat;
+        background-position: 50%;
+        height: 100%;
+        background: url('img/png/Message_Blue.png') no-repeat;
+        background-size: contain;
+    }
+    .tabs .tab-item .icon.MessageIconOff {
+        background-repeat: no-repeat;
+        background-position: 50%;
+        height: 100%;
+        background: url('img/png/Message_White.png') no-repeat;
+        background-size: contain;
+    }
+</style>    
+
+<script type="text/ng-template" id="tabs-ios.html">               
+
+<aui-side-menus enable-menu-with-back-views="false">
+        <aui-side-menu-content>
+            <aui-nav-bar class="bar-royal">   
+                <aui-nav-back-button>
+                </aui-nav-back-button>
+
+                <aui-nav-buttons side="left">
+                    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+                </aui-nav-buttons>
+    </aui-nav-bar> 
+     <aui-tabs class="tabs-icon-top tabs-royal">
         <!-- News Feed Tab -->
         <!-- icon off -> when not selected, icon on -> when selected-->
-        <aui-tab title="News Feed" icon-off="ion-ios-home" icon-on="ion-ios-list" ui-sref="tab.newsFeeds">
+        <aui-tab icon-off="ListIconOff" icon-on="ListIconOn" ui-sref="tab.newsFeeds">
             <aui-nav-view name="tab-newsFeeds"></aui-nav-view>
         </aui-tab>
-        <!-- Benchmarks Tab -->
-        <aui-tab title="Home" icon-off="ion-ios-home" icon-on="ion-ios-heart" ui-sref="tab.home">
-            <aui-nav-view name="tab-home"></aui-nav-view>
+        <!-- New Fist Tab  fist bump icon blue.svg-->
+        <!-- <aui-tab title="Fist Bump" icon-off="ion-thumbsup" icon-on="ion-thumbsup" ui-sref="tab.newFistBump"> -->
+        <aui-tab icon-off ="FistbumpIconOff" icon-on ="FistbumpIconOn" ui-sref="tab.newFistBump">
+            <aui-nav-view name="tab-newFistBump"></aui-nav-view>
         </aui-tab>
-        <!-- More Tab 
-        <aui-tab title="More" icon-off="ion-more" icon-on="ion-more" ui-sref="tab.more">
+        <!-- Transfer tab-->
+        <aui-tab icon-off="CoffeeIconOff" icon-on="CoffeeIconOn" ui-sref="tab.newTransfer">
+            <aui-nav-view name="tab-newTransfer"></aui-nav-view>
+        </aui-tab>
+        <!-- History Sent/Received-->
+        <aui-tab icon-off="MessageIconOff" icon-on="MessageIconOn" ui-sref="tab.transferHistory">
+            <aui-nav-view name="tab-transferHistory"></aui-nav-view>
+        </aui-tab>
+        <!-- More Tab --> 
+        <aui-tab icon-off="ShopIconOff" icon-on="ShopIconOn" ui-sref="tab.more">
             <aui-nav-view name="tab-more"></aui-nav-view>
-        </aui-tab>-->
+        </aui-tab>
+
+
     </aui-tabs>
+    <aui-nav-view name="menuContent"></aui-nav-view>
+        </aui-side-menu-content>
+    <aui-side-menu side="left">
+            <aui-header-bar class="bar-dark text-right">
+               <!-- <h2>Test</h2> -->
+            </aui-header-bar>
+            <aui-content class="menuContent">
+                <aui-list>
+
+                    
+                    <!--<aui-item class="menuItem item-royal" menu-close ng-click="profile()>-->
+                    <aui-item class="menuItem item-royal" menu-close ui-sref="profile">
+                        <div class="item-icon-left">
+                            <i class="icon ion-person"></i>
+                            <p>
+                                Profile
+                            </p>
+                        </div>
+                        <div class="item-icon-right">
+                            <i class="icon ion-ios-arrow-right"></i>
+                        </div>
+                    </aui-item>
+                    <!--<aui-item class="menuItem item-royal" menu-close ng-click="payment()">-->
+                    <aui-item class="menuItem item-royal" menu-close ui-sref="payment">
+                        <div class="item-icon-left">
+                            <i class="icon ion-card"></i>
+                            <p>
+                                Make payment
+                            </p>
+                        </div>
+                        <div class="item-icon-right">
+                            <i class="icon ion-ios-arrow-right"></i>
+                        </div>
+                    </aui-item>
+                    <aui-item class="menuItem item-royal" menu-close ng-click="logout()">
+                        <div class="item-icon-left">
+                            <i class="icon ion-android-exit"></i>
+                            <p>
+                                Log Out
+                            </p>
+                        </div>
+                        <div class="item-icon-right">
+                            <i class="icon ion-ios-arrow-right"></i>
+                        </div>
+
+                    </aui-item>
+                </aui-list>
+            </aui-content>
+            <aui-footer-bar class="bar-dark text-center">
+            </aui-footer-bar>
+        </aui-side-menu>
+</aui-side-menus>
+   
 </script>

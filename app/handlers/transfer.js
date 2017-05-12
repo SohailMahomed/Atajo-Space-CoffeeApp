@@ -4,8 +4,8 @@ var path = require('path');
 var handlerWebRequest = require(path.join(__dirname, '..', 'provider', 'lib', 'handlerWebRequest'));
 
 
-var doubleQuotesRegex = /"/g;
-
+//var doubleQuotesRegex = /"/g;
+var spaceRegex = /\s/g;
 
 require(path.join(__dirname,'..','provider','lib','atajo.fork')).init({
 
@@ -20,7 +20,7 @@ require(path.join(__dirname,'..','provider','lib','atajo.fork')).init({
                 
                 var heads = {
                     //authorization: "Bearer "+obj.headers.replace(doubleQuotesRegex,'')
-                    authorization: "Bearer "+obj.headers
+                    authorization: "Bearer "+obj.headers.replace(spaceRegex,'')
                     //'content-type': 'application/json'
                 };
                 
@@ -39,7 +39,7 @@ require(path.join(__dirname,'..','provider','lib','atajo.fork')).init({
                 
                 var heads = {
                     //authorization: "Bearer "+obj.headers.replace(doubleQuotesRegex,'')
-                    authorization: "Bearer "+obj.headers
+                    authorization: "Bearer "+obj.headers.replace(spaceRegex,'')
                     //'content-type': 'application/json'
                 };
                 
@@ -56,10 +56,11 @@ require(path.join(__dirname,'..','provider','lib','atajo.fork')).init({
             case 'getBeanBalance':
                 
                 var heads = {
-                    authorization: "Bearer "+obj.headers.replace(doubleQuotesRegex,'')
+                    authorization: "Bearer "+obj.headers.replace(spaceRegex,'')
                 };
                 var filter = "?sender="+obj.params;
                 console.log("------------------------- ");
+                console.log("transfer.js token "+JSON.stringify(heads));
                 console.log("BeanBalance Uri : "+baseURL+"/"+filter);  
                 
                 handlerWebRequest.get(baseURL+"/"+obj.params, null, heads).then(function(data) {

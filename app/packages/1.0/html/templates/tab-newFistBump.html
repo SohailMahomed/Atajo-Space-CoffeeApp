@@ -15,7 +15,7 @@
 </style>
 
 <script type="text/ng-template" id="tab-newFistBump.html">
-    <aui-view view-title="New Fist Bump">
+    <aui-view view-title="Fist Bump">
         <aui-content>
           <h2 style="margin: 8px; margin-top:12px;"></h2>
            
@@ -27,8 +27,7 @@
                         <input type="text" placeholder="Search user" ng-keydown="checkKeydown($event)" ng-keyup="checkKeyUp($event)" ng-model="fistbumpParams.fbParams.Receiver" ng-change="searchFunc()"/>
                     </label>
                     <div style="margin-top:10px; float:right;" ng-if="fistbumpParams.fbParams.Receiver">
-                        <aui-scroll scrollbar-y="false" direction="y" style="height:calc(100vh-414px)"> 
-
+                        <aui-scroll scrollbar-y="false" direction="y" style="height:calc(100vh-414px)" ng-if="userList.length > 0"> 
                             <aui-list>
                                   <aui-item ng-repeat="user in userList track by $index" ng-class="{active : selectedIndex === $index}" ng-click="AssignValueAndHide($index)">
                                       {{user | lowercase}}
@@ -36,6 +35,12 @@
                             </aui-list>
                         </aui-scroll>
                     </div>                                 
+                </div>
+                
+                <div>    
+                <label class="item item-input">
+                    <input ng-model="fistbumpParams.fbParams.Message" type="text" placeholder="Message">
+                </label>
                 </div>
 
                 <div class="item">
@@ -46,14 +51,11 @@
                     </select>
                 </div>
                 
-                <div>    
-                <label class="item item-input">
-                    <input ng-model="fistbumpParams.fbParams.Message" type="text" placeholder="Message">
-                </label>
-                </div>
-                
                 <div class="item item-divider">
-                <button class="button button-clear button-light" ng-click="showSummaryFistBumpDialog()" style="width: 50%; float:right;">
+                <label style="font-size:16px; margin-left:10px; padding:10px; border-radius:90px; border: 2px solid cyan; width:35px; font-color:cyan; font-style:bold; float:left;">
+                    {{fistBumpLimit}}
+                </label>
+                <button class="button button-clear button-calm" ng-click="showSummaryFistBumpDialog()" style="width: 50%; float:right;">
                     SEND
                 </button>
                 </div>

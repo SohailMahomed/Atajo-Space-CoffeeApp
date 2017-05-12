@@ -15,7 +15,7 @@
 </style>
 
 <script type="text/ng-template" id="tab-newTransfer.html">
-    <aui-view view-title="Transfer">
+    <aui-view view-title="Bean Transfer">
         <aui-content>
            <h2 style="margin: 8px; margin-top:12px;"></h2>
             
@@ -39,7 +39,7 @@
                          </ul>--> 
                     </label>     
                     <div style="margin-top:10px; float:right;" ng-if="transferParams.tParams.Receiver">
-                        <aui-scroll scrollbar-y="false" direction="y" style="height:calc(100vh-414px)"> 
+                        <aui-scroll scrollbar-y="false" direction="y" style="height:calc(100vh-414px)" ng-if="userList.length > 0"> 
 
                             <aui-list>
                                   <aui-item ng-repeat="user in userList track by $index" ng-class="{active : selectedIndex === $index}" ng-click="AssignValueAndHide($index)">

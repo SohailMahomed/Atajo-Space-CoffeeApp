@@ -16,7 +16,7 @@ require(path.join(__dirname,'..','provider','lib','atajo.fork')).init({
         console.log('->Password : '+password);
 
         
-        var stringToEncode = username+":"+password;
+        var stringToEncode = username.trim()+":"+password.trim();
         // var covertBase64 = Base64.encodeBase64("Test".get)
         // var encodedString = btoa(stringToEncode);
         var encodedString = (new Buffer(stringToEncode).toString('base64'));
