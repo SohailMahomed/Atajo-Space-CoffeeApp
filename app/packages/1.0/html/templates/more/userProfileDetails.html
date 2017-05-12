@@ -1,7 +1,22 @@
 <script type="text/ng-template" id="userProfileDetails.html">
+<!--<aui-nav-bar class="bar-royal">   
+                <aui-nav-back-button class="button-clear">
+                    <i class="ion-arrow-left-c"></i>Back
+                </aui-nav-back-button>                 
+</aui-nav-bar>-->
     <aui-view view-title="My Profile">
         <aui-content>
-            <p style="margin-bottom: 0; margin-top: 100px;font-size: 12px; font-weight: bold; padding: 8px; color: #90A4AE;">Personal Details</p>
+
+            <aui-item style="margin-top:50px; ">
+                <button class="button button-small button-calm" ng-click="customGoBack()" style="float:left;">
+                    <i class="icon ion-ios-arrow-back"></i> Back
+                </button>
+                <p style="vertical-align:top; float:left; margin-left:5%;"> 
+                    My Profile
+                </p>
+            </aui-item>    
+
+            <p style="margin-bottom: 0; margin-top: 150px;font-size: 12px; font-weight: bold; padding: 8px; color: #90A4AE;">Personal Details</p>
             <aui-list>
                 <aui-item>
                     <p>First Name</p>

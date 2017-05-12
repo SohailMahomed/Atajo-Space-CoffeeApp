@@ -24,6 +24,8 @@ module.controller('NewFistBumpCtrl', [
 
         $scope.user = $rootScope.getProfile();
 
+        $rootScope.weekConfig();
+
         var userSender = "";
         if($scope.user.username !== "")
         {
@@ -46,6 +48,8 @@ module.controller('NewFistBumpCtrl', [
         $scope.fistbumpParams = {
             fbParams:{}
         };
+
+        $scope.fistBumpLimit = $rootScope.currentFistbumps();
 
         $scope.searchUser = "";
 
@@ -196,7 +200,7 @@ module.controller('NewFistBumpCtrl', [
             {
                 var searchUsersSmallLetters = $scope.list[i].username;
                 var searchTextSmallLetters = $scope.fistbumpParams.fbParams.Receiver;
-                if( searchUsersSmallLetters.indexOf(searchTextSmallLetters) !== -1)
+                if( searchUsersSmallLetters.indexOf(searchTextSmallLetters.toLowerCase()) !== -1)
                 {
                     $scope.userList.push(searchUsersSmallLetters);
                     myMaxUserListLength += 1;
@@ -263,6 +267,7 @@ module.controller('NewFistBumpCtrl', [
             $scope.fistbumpParams.fbParams.Receiver = "";
             $scope.fistbumpParams.fbParams.Message = null;
             $scope.fistbumpParams.fbParams.Category = null;
+            $scope.fistBumpLimit = $rootScope.currentFistbumps();
         }
 
         //---------------------------------------
@@ -459,7 +464,7 @@ module.controller('TransferCtrl', [
             {
                 var searchUsersSmallLetters = $scope.list[i].username;
                 var searchTextSmallLetters = $scope.transferParams.tParams.Receiver;
-                if( searchUsersSmallLetters.indexOf(searchTextSmallLetters) !== -1)
+                if( searchUsersSmallLetters.indexOf(searchTextSmallLetters.toLowerCase()) !== -1)
                 {
                     $scope.userList.push(searchUsersSmallLetters);
                     myMaxUserListLength += 1;
@@ -601,6 +606,7 @@ module.controller('OurMenuCtrl', [
         //---------------------------------------
 
         $scope.menuList = $rootScope.getMenuList();
+
         console.log("Array of menulist : "+JSON.stringify($scope.menuList));
 
         for(var x = 0; x < $scope.menuList.length; x++)
@@ -760,6 +766,16 @@ module.controller('PaymentCtrl', [
 
         $scope.user = $rootScope.getProfile();
 
+        $scope.removeTagOnBackspace = function (event) {
+          if (event.keyCode === 8) {
+            console.log("keyCode from payment: "+JSON.stringify(event.keyCode));
+            }
+        };
+
+        $scope.customGoBack = function() {
+            $state.go('tab.newsFeeds');
+        };
+
         $scope.scanCode = function()
         {
             console.log("scanCode here");
@@ -812,21 +828,27 @@ module.controller('PaymentCtrl', [
                     var total = 0;
                     var menuList = [];
                     var itemsToPay = [];
-                    MenuService.getMenu().then(function(data){
-                        if(!data)
-                        {
-                            console.log("failed getting list for menu");
-                        }
-                        else
-                        {
-                            console.log("Array of menu "+data[0].name);
-                            $rootScope.saveMenuList(data);
-                        }
-                    }, function(err) {
-                        console.log("error getting list of menu");
-                        console.log(err);
-                    });
                     menuList = $rootScope.getMenuList();
+
+                    if(menuList.length < 0)
+                    {
+                         MenuService.getMenu().then(function(data){
+                            if(!data)
+                            {
+                                console.log("failed getting list for menu");
+                            }
+                            else
+                            {
+                                console.log("Array of menu "+data[0].name);
+                                $rootScope.saveMenuList(data);
+                            }
+                        }, function(err) {
+                            console.log("error getting list of menu");
+                            console.log(err);
+                        });
+                        menuList = $rootScope.getMenuList();
+                    }
+
                     itemsToPay = $rootScope.getListToPay();
                     console.log("menu items : "+JSON.stringify(menuList));
 

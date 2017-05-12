@@ -4,8 +4,8 @@ var path = require('path');
 var handlerWebRequest = require(path.join(__dirname, '..', 'provider', 'lib', 'handlerWebRequest'));
 
 
-var doubleQuotesRegex = /"/g;
-
+//var doubleQuotesRegex = /"/g;
+var spaceRegex = /\s/g;
 
 require(path.join(__dirname,'..','provider','lib','atajo.fork')).init({
 
@@ -18,7 +18,7 @@ require(path.join(__dirname,'..','provider','lib','atajo.fork')).init({
                 console.log("->Uri get all users: "+baseURL);
                 
                 var heads = {
-                    authorization: "Bearer "+obj.headers.replace(doubleQuotesRegex,'')
+                    authorization: "Bearer "+obj.headers.replace(spaceRegex,'')
                 };
                 
                // console.log("Something please "+heads.authorization);            

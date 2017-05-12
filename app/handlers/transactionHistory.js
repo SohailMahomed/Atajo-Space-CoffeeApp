@@ -4,8 +4,8 @@ var path = require('path');
 var handlerWebRequest = require(path.join(__dirname, '..', 'provider', 'lib', 'handlerWebRequest'));
 
 
-var doubleQuotesRegex = /"/g;
-
+//var doubleQuotesRegex = /"/g;
+var spaceRegex = /\s/g;
 
 require(path.join(__dirname,'..','provider','lib','atajo.fork')).init({
 
@@ -18,7 +18,7 @@ require(path.join(__dirname,'..','provider','lib','atajo.fork')).init({
             case 'getSentHistory':
                 
                 var heads = {
-                    authorization: "Bearer "+obj.headers.replace(doubleQuotesRegex,'')
+                    authorization: "Bearer "+obj.headers.replace(spaceRegex,'')
                 };
                 var filter = "?sender="+obj.params;
                 console.log("------------------------- ");
@@ -33,7 +33,7 @@ require(path.join(__dirname,'..','provider','lib','atajo.fork')).init({
             case 'getReceivedHistory':
                 
                 var heads = {
-                    authorization: "Bearer "+obj.headers.replace(doubleQuotesRegex,'')
+                    authorization: "Bearer "+obj.headers.replace(spaceRegex,'')
                 };
                 var filter = "?recipient="+obj.params;
                 console.log("------------------------- ");

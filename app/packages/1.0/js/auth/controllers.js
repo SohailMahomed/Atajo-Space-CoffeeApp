@@ -117,6 +117,10 @@ module.controller('ProfileCtrl', [
 
         console.log("prof :  -->"+JSON.stringify($scope.userProfile));             
 
+        $scope.customGoBack = function() {
+            $state.go('tab.newsFeeds');
+        };
+
         ctrl.init = function() {
 
         };

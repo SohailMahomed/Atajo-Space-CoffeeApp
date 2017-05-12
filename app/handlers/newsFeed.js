@@ -4,8 +4,8 @@ var path = require('path');
 var handlerWebRequest = require(path.join(__dirname, '..', 'provider', 'lib', 'handlerWebRequest'));
 
 
-var doubleQuotesRegex = /"/g;
-
+//var doubleQuotesRegex = /"/g;
+var spaceRegex = /\s/g;
 
 require(path.join(__dirname,'..','provider','lib','atajo.fork')).init({
 
@@ -19,7 +19,7 @@ require(path.join(__dirname,'..','provider','lib','atajo.fork')).init({
                 console.log("->Uri : "+baseURL + "/"+obj.params);
                 
                 var heads = {
-                    authorization: "Bearer "+obj.headers.replace(doubleQuotesRegex,'')
+                    authorization: "Bearer "+obj.headers.replace(spaceRegex,'')
                 };
                 var filter = "?countLimit="+obj.params;
                 console.log("------------------------- ");

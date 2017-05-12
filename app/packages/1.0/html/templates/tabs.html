@@ -1,4 +1,4 @@
-<style>
+<!--<style>
     .FistbumpIconOn:before,
     .FistbumpIconOn:before{
         content: url('img/Assets/Fistbump icon blue.svg');
@@ -64,7 +64,7 @@
         background: url('img/png/Message White.png');
         height: 20px; width: 20px;
     }
-</style>    
+</style>-->
 
 <script type="text/ng-template" id="tabs.html">               
 
@@ -86,7 +86,7 @@
         </aui-tab>
         <!-- New Fist Tab  fist bump icon blue.svg-->
         <!-- <aui-tab title="Fist Bump" icon-off="ion-thumbsup" icon-on="ion-thumbsup" ui-sref="tab.newFistBump"> -->
-        <aui-tab icon-off ="FistbumpIconOff" icon-on ="FistbumpIconOn" ui-sref="tab.newFistBump">
+        <aui-tab icon-off ="FistbumpIconOff" icon-on="FistbumpIconOn" ui-sref="tab.newFistBump">
             <aui-nav-view name="tab-newFistBump"></aui-nav-view>
         </aui-tab>
         <!-- Transfer tab-->
@@ -114,10 +114,10 @@
                 <aui-list>
 
                     
-                    <!--<aui-item class="menuItem item-royal" menu-close ng-click="profile()>-->
-                    <aui-item class="menuItem item-royal" menu-close ui-sref="tab.profile">
+                    <!--<aui-item class="menuItem item-royal" menu-close ui-sref="tab.profile">-->
+                    <aui-item class="menuItem item-royal" menu-toggle="left" ui-sref="profile">
                         <div class="item-icon-left">
-                            <i class="icon ion-earth"></i>
+                            <i class="icon ion-person"></i>
                             <p>
                                 Profile
                             </p>
@@ -126,10 +126,10 @@
                             <i class="icon ion-ios-arrow-right"></i>
                         </div>
                     </aui-item>
-                    <!--<aui-item class="menuItem item-royal" menu-close ng-click="payment()">-->
-                    <aui-item class="menuItem item-royal" menu-close ui-sref="tab.payment">
+                    <!--<aui-item class="menuItem item-royal" menu-close ui-sref="tab.payment">-->
+                    <aui-item class="menuItem item-royal" menu-toggle="left" ui-sref="payment">
                         <div class="item-icon-left">
-                            <i class="icon ion-earth"></i>
+                            <i class="icon ion-card"></i>
                             <p>
                                 Make payment
                             </p>
@@ -138,7 +138,7 @@
                             <i class="icon ion-ios-arrow-right"></i>
                         </div>
                     </aui-item>
-                    <aui-item class="menuItem item-royal" menu-close ng-click="logout()">
+                    <aui-item class="menuItem item-royal" menu-toggle="left" ng-click="logout()">
                         <div class="item-icon-left">
                             <i class="icon ion-android-exit"></i>
                             <p>

@@ -1,4 +1,4 @@
-module.controller('TabsCtrl', ['$log', '$q', '$rootScope', '$scope', '$state', 
+module.controller('TabsCtrl', ['$log', '$q', '$rootScope', '$scope', '$state',
 function($log, $q, $rootScope, $scope, $state) {
     var ctrl = this;
     
@@ -8,7 +8,7 @@ function($log, $q, $rootScope, $scope, $state) {
             $state.go('login');
             console.log('Logged out');
         };
-
+/*
     $scope.profile = function() 
     { 
         $state.go('profile');
@@ -18,7 +18,7 @@ function($log, $q, $rootScope, $scope, $state) {
     { 
         $state.go('payment');
     };    
-
+*/
         ctrl.init = function() {
 
         };    
